@@ -110,7 +110,7 @@ class SendCustomerPasswordResetEmailSerializer(serializers.Serializer):
             print('Encoded UID', uid)
             token = PasswordResetTokenGenerator().make_token(user)
             print('Password Reset Token', token)
-            link = 'http://django-auth-api-0.herokuapp.com/api/customers/reset-password/'+uid+'/'+token
+            link = 'http://localhost:8000/api/customers/reset-password/'+uid+'/'+token
             print('Password Reset link', link)
             # send email
             body = 'Click the link to reset your password-> '+link
@@ -120,7 +120,7 @@ class SendCustomerPasswordResetEmailSerializer(serializers.Serializer):
                 'to_email': user.email
             }
             Util.send_email(data)
-            return attrs
+            return link
         else:
             raise ValidationErr("You are not registered user!")
 
@@ -256,7 +256,7 @@ class SendDealerPasswordResetEmailSerializer(serializers.Serializer):
             print('Encoded UID', uid)
             token = PasswordResetTokenGenerator().make_token(user)
             print('Password Reset Token', token)
-            link = 'http://django-auth-api-0.herokuapp.com/api/customers/reset-password/'+uid+'/'+token
+            link = 'http://localhost:8000/api/customers/reset-password/'+uid+'/'+token
             print('Password Reset link', link)
             # send email
             body = 'Click the link to reset your password-> '+link
