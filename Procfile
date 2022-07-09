@@ -1,1 +1,1 @@
-web:python3 manage.py runserver
+web: gunicorn crm1.wsgi --log-file -heroku
