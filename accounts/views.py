@@ -56,7 +56,7 @@ class CustomerRegistrationView(APIView):
             }
             #Util.send_email(data)
             print(f"\x1b[31m {absurl}")
-            return Response({'token': str(token), 'msg': 'Registration successfully done!!'}, status=status.HTTP_201_CREATED)
+            return Response({'token': str(token), 'msg': 'Registration successfully done!!', 'linc':absurl}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class VerifyEmail(generics.GenericAPIView):
