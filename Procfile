@@ -1,1 +1,1 @@
-web: gunicorn crm1.wsgi --log-file -heroku
+web: waitress-serve --port=$PORT kt_auth.wsgi:application
